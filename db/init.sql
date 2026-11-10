@@ -18,7 +18,7 @@ CREATE TABLE emprestimos (
   data_devolucao  TIMESTAMPTZ
 );
 
--- Garante no banco que um livro nao tem dois emprestimos em aberto ao mesmo tempo.
+-- pra garantir que nenhum livro tenha 2 emprestimos ao mesmo tempo.
 CREATE UNIQUE INDEX emprestimo_aberto_por_livro
   ON emprestimos (livro_id)
   WHERE data_devolucao IS NULL;
